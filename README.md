@@ -65,9 +65,9 @@ seconds: 300
 * Lets Encrypt
     * Config
 ```yml
-email: david.leuenberger@outlook.com
+email: YOUR.EMAIL@HERE.com
 domains:
-  - deleven.duckdns.org
+  - YOUR_DOMAIN.com
 certfile: fullchain.pem
 keyfile: privkey.pem
 challenge: http
