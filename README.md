@@ -1,24 +1,10 @@
-# Home-Assistant on my Synology918+ NAS, running as a VM
-
-# ToDo
-- [x] Setup Spotify to Chromecast - See Wiki for instructions how to
-- [x] Install HACS (Easy Guide https://hacs.xyz/docs/installation/manual_cli)
-- [ ] HACS Cards for Minecraft  
-- [ ] HACS Cards for Vaccumcleaner  
-- [ ] HACS Cards for NZBGet  
-- [ ] HACS Cards for Sonarr  
-- [ ] HACS Cards for Radarr  
-- [ ] HACS Cards for Home Assistant Spotify Lovelace Card (https://github.com/custom-cards/spotify-card)  
-- [ ] Setup Global Disaster Alert and Coordination System (GDACS)  
-- [ ] Setup Coronavirus (COVID-19)  
-- [ ] Setup GPSLogger  
-- [ ] Setup IFTTT  
--------------------------------------------------------------
-
-## Guide (WorkInProgress)
+# Setup Guide (WorkInProgress)
 
 * Setup the VM
     * https://gh2home.nl/homeassistant/install-home-assistant-in-a-virtual-machine-vmm/
+* Setup Active Backup for Business on Synology, so you have a automated local backup, just to be sure 
+    * I added it as a File Server
+    * Add samba credentials, not the ones from Home-Assistant or NAS
 * Make a Snapshot of fresh install
 * Make IP Static (Router), Port Forward () Router
 * Profile -> Advanced Mode
@@ -93,7 +79,7 @@ dns: {}
 * Create a Dashboard called 
 > Deleven
 * Check config
-    * If Everything is ok, reboot
+    * If everything is ok, reboot
 
 * Connect to GitHUB
     * Download and open GitHub Desktop
