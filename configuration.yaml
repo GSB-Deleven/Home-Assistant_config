@@ -1,0 +1,86 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+input_number: !include input_number.yaml
+input_select: !include input_select.yaml
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+homeassistant:
+  external_url: !secret external_url
+  internal_url: !secret internal_url
+
+media_player:
+
+stream:
+
+# DuckDNS Stuff / https://www.home-assistant.io/integrations/duckdns/
+duckdns:
+  domain: !secret DuckDNS_domain
+  access_token: !secret DuckDNS_access_token
+
+# Spotify
+spotify: 
+  client_id: !secret spotify_client_ID
+  client_secret: !secret spotify_client_secret
+# used this guide https://www.home-assistant.io/integrations/spotify/
+# but i added all this redirect urls in the spotify app, otherwise it wasnt working
+# http://external_url:port/auth/external/callback
+# http://external_url:port/callback
+# http://internal_url:port/auth/external/callback
+# http://internal_url:port/auth/callback
+# https://external_url:port/auth/external/callback
+# https://external_url:port/callback
+
+# Spotcast
+spotcast:
+  sp_dc: !secret sp_dc
+  sp_key: !secret sp_key
+  
+# Radarr
+sensor:
+  - platform: radarr
+    api_key: !secret radarr_api_key
+    host: !secret NAS_IP
+    port: !secret radarr_port
+    monitored_conditions:
+      - upcoming
+      - diskspace
+      - status
+      - movies
+    unit: TB
+    days: 30
+
+
+# Xiaomi Roborock S5
+vacuum:
+  - platform: xiaomi_miio
+    name: Roborock S5
+    host: !secret roborock_s5_ip
+    token: !secret roborock_s5_token
+
+camera:
+  - platform: xiaomi_cloud_map_extractor # https://github.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor
+    host: !secret roborock_s5_ip
+    token: !secret roborock_s5_token
+    username: !secret xiaomi_username
+    password: !secret xiaomi_password
+    country: "de"
+    name: "Roborock S5"
+    draw: ["all"]
+    attributes:
+      - calibration_points
+    map_transformation:
+      scale: 1.5
+      trim:
+        top: 20
+        bottom: 20
+        left: 20
+        right: 20

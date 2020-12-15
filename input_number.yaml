@@ -1,0 +1,10 @@
+# Radio volume
+
+radio_volume:
+  name: Volume
+  icon: mdi:volume-high
+  initial: 0.4
+  min: 0
+  max: 1
+  step: 0.05
+  mode: box

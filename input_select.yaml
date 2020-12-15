@@ -1,0 +1,23 @@
+# Radio stations
+
+radio_station:
+  name: "Select Radio Station"
+  options:
+    - "Radio 32"
+    - "SRF 3"
+    - "SRF Virus"
+    - "Argovia"
+    - "181.FM Comedy Club"
+    - "Spotify - Meine Party"
+  initial: Radio 32
+  icon: mdi:radio
+
+radio_speaker:
+  name: "Select Speaker"
+  options:
+    - "Home group"
+    - "Google Home Mini Esszimmer"
+    - "Google Home Mini Wohnzimmer"
+    - "Google Home Mini Küche"
+  initial: "Home group"
+  icon: mdi:speaker-wireless
