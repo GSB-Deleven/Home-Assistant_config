@@ -91,6 +91,7 @@ dns: {}
     * make sure the `.gitignore`is up to date and has the `secrets.yaml`file in it. (it should be, if you followed the steps above)
     * push it to GitHub
 
+<<<<<<< HEAD
 * More Supervisor Installs
     * Check Home Assistant configuration
     * SSH & Terminal
@@ -101,74 +102,12 @@ dns: {}
     * Mosquitto broker MQTT
     * Configure GitHub Auto Backup https://www.youtube.com/watch?v=9-OG3bCQFFQ
     * GitHub integration https://youtu.be/rzE9WXZj6N8
+=======
+* [In this Project](https://github.com/GSB-Deleven/Home-Assistant_config/projects/3) you see what else I installed
 
--------------------------------------------------------------
--------------------------------------------------------------
--------------------------------------------------------------
--------------------------------------------------------------
--------------------------------------------------------------
--------------------------------------------------------------
--------------------------------------------------------------
--------------------------------------------------------------
--------------------------------------------------------------
--------------------------------------------------------------
+* [In the Wiki](https://github.com/GSB-Deleven/Home-Assistant_config/wiki) I explaine the things which need explanation (mostly because I struggled myself during the Install)
 
-# Old Stuff from the Old README.md
+* If you would like something else explained, let me know [here in a Disussion](https://github.com/GSB-Deleven/Home-Assistant_config/discussions?discussions_q=category%3ARequest)
 
-## `secrets.yml` file
-for obvious reasons the `secrets.yml` file doesnt get uploaded. (added to .gitignore)  
-Just use the `secrets_template.yaml` and copy&paste the structre, so you know how you should build it.
-Well what should i say, its a template.
+>>>>>>> 6e4099279b92afd54ec29d5f240c8154a05abad8
 
--------------------------------------------------------------
-
-# Things which are installed
-
-## via `configuration.yml`
-* Spotify (Local Playback), after the `coniguration.yml`, also needs Integrations Setup
-* Radio on Google Home
-* Radarr
-* Vacuum xiaomi_miio
-
-------------------------------------------------------------------
-
-## via Menu -> Integrations
-* brother Printer
-* Coronavirus
-* Glances
-* Global Disaster Alert
-* Google Cast
-* GPS Logger
-* Home Assistant iOS
-* HomeKit
-* IFTTT
-* Internet Printing Protocol (IPP)
-* Local IP Address
-* Meteorologisk institutt (Met.no)
-* Minecraft Server
-* Mobile App
-* NZBGet
-* Profiler
-* Raspberry Pi Power Supply Checker
-* Shopping List
-* Sonarr
-* Speedtest.net
-* Synology DSM
-* UPnP (Router)
-* XBOX
-
-------------------------------------------------------------------
-
-## via HACS    
-
-### Integrations
-* spotcast
-* SamsungTV Tizen (Not Setup yet)
-* Monitor Docker (Not Setup yet)
-* 
-
-### Frontend
-* Mini Graph Card 
-* 
-
-------------------------------------------------------------------
