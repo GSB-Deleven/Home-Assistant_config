@@ -91,9 +91,6 @@ dns: {}
     * make sure the `.gitignore`is up to date and has the `secrets.yaml`file in it. (it should be, if you followed the steps above)
     * push it to GitHub
 
-
-
-
 * More Supervisor Installs
     * Check Home Assistant configuration
     * SSH & Terminal
