@@ -21,7 +21,7 @@
       media_content_id: ' 
       {% if is_state("input_select.radio_station", "Radio 32") %} https://stream.radio32.ch/radio32 
       {% elif is_state("input_select.radio_station", "SRF 3") %} https://stream.srg-ssr.ch/m/drs3/mp3_128 
-      {% elif is_state("input_select.radio_station", "SRF Virus") %} https://stream.srg-ssr.ch/m/drsvirus/mp3_128 
+      {% elif is_state("input_select.radio_station", "SRF Virus") %} https://stream.srg-ssr.ch/m/drsvirus/mp3_128
       {% elif is_state("input_select.radio_station", "Argovia") %} https://icecastgreen.argovia.ch/argovia128 
       {% elif is_state("input_select.radio_station", "181.FM Comedy Club") %} https://listen.181fm.com/181-comedy_128k.mp3?noPreRoll=true
       {% endif %}'

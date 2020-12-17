@@ -1,6 +1,5 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
-
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
@@ -59,31 +58,76 @@ vacuum:
     host: !secret roborock_s5_ip
     token: !secret roborock_s5_token
 
+# HomeKit Stuff
+homekit:
+  auto_start: true
+  filter:
+    include_entities:
+      # Media Players
+      - media_player.home_group
+      - media_player.tv_living_room
+      - media_player.tv_dave
+      # Minecraft
+      - binary_sensor.minecraft_server_status
+      # Vacuum
+      - vacuum.roborock_s5
+      - camera.roborock_s5
+      # NAS
+      - binary_sensor.delevennas_security_status
+      - sensor.delevennas_temperature
+  entity_config:
+    media_player.home_group:
+      feature_list:
+        - feature: on_off
+    media_player.tv_living_room:
+      feature_list:
+        - feature: on_off
+    media_player.tv_dave:
+      feature_list:
+        - feature: on_off
+
 ###############################################################################
 # from Here on out, this stuff needs HACS
 ###############################################################################
 
 # Spotcast
-#spotcast:
-#  sp_dc: !secret sp_dc
-#  sp_key: !secret sp_key
+spotcast:
+  sp_dc: !secret sp_dc
+  sp_key: !secret sp_key
 
 # Xiaomi Roborock S5 Cloud Map Extractor
-#camera:
-#  - platform: xiaomi_cloud_map_extractor # https://github.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor
-#    host: !secret roborock_s5_ip
-#    token: !secret roborock_s5_token
-#    username: !secret xiaomi_username
-#    password: !secret xiaomi_password
-#    country: "de"
-#    name: "Roborock S5"
-#    draw: ["all"]
-#    attributes:
-#      - calibration_points
-#    map_transformation:
-#      scale: 1.5
-#      trim:
-#        top: 20
-#        bottom: 20
-#        left: 20
-#        right: 20
+camera:
+  - platform: xiaomi_cloud_map_extractor # https://github.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor
+    host: !secret roborock_s5_ip
+    token: !secret roborock_s5_token
+    username: !secret xiaomi_username
+    password: !secret xiaomi_password
+    country: "de"
+    name: "Roborock S5"
+    draw: ["all"]
+    attributes:
+      - calibration_points
+      - charger
+      - goto
+      - goto_path
+      - goto_predicted_path
+      - image
+      - is_empty
+      - map_name
+      - no_go_areas
+      - no_mopping_areas
+      - obstacles
+      - path
+      - room_numbers
+      - rooms
+      - vacuum_position
+      - vacuum_room
+      - walls
+      - zones
+    map_transformation:
+      scale: 1.5
+      trim:
+        top: 20
+        bottom: 20
+        left: 20
+        right: 20

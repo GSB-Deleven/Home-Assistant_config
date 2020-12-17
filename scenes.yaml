@@ -1,0 +1,28 @@
+- id: '1608200455916'
+  name: Light ON
+  entities: {}
+  icon: mdi:lightbulb-group-outline
+- id: '1608201763842'
+  name: Lights OFF
+  entities: {}
+  icon: mdi:lightbulb-group-off
+- id: '1608201997760'
+  name: Bedtime
+  entities:
+    scene.lights_off:
+      entity_id:
+      - light.dave
+      - light.esszimmer
+      - light.gang
+      - light.nachttisch
+      - light.schlafzimmer
+      - light.wohnzimmer
+      id: '1608201763842'
+      friendly_name: Lights OFF
+      icon: mdi:lightbulb-group-off
+      state: scening
+  icon: mdi:bed
+- id: '1608202611802'
+  name: Sleep
+  entities: {}
+  icon: mdi:sleep
