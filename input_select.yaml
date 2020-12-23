@@ -16,8 +16,9 @@ radio_speaker:
   name: "Select Speaker"
   options:
     - "Home group"
-    - "Google Home Mini Esszimmer"
-    - "Google Home Mini Wohnzimmer"
-    - "Google Home Mini Küche"
+    - "Daves Room speaker"
+    - "Kitchen speaker"
+    - "Dining room speaker"
+    - "Living room speaker"
   initial: "Home group"
   icon: mdi:speaker-wireless

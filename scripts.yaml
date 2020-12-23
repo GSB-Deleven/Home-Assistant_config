@@ -1,34 +1,33 @@
 '1607456425349':
-  alias: Play Music on Google Home
+  alias: Start Radio / Spotify
   sequence:
   - service: media_player.volume_set
     data:
-      entity_id: ' 
-      {% if is_state("input_select.radio_speaker", "Home group") %} media_player.home_group
-      {% elif is_state("input_select.radio_speaker","Google Home Mini Esszimmer") %} media_player.ghm_esszimmer 
-      {% elif is_state("input_select.radio_speaker", "Google Home Mini Wohnzimmer") %} media_player.ghm_wohnzimmer 
-      {% elif is_state("input_select.radio_speaker", "Google Home Mini Küche") %} media_player.ghm_kueche 
-      {% endif %}'
+      entity_id: ' {% if is_state("input_select.radio_speaker", "Home group") %} media_player.home_group
+        {% elif is_state("input_select.radio_speaker", "Daves Room speaker") %} media_player.lenovo_smartclock_essential
+        {% elif is_state("input_select.radio_speaker","Dining room speaker") %} media_player.dining_room_speaker
+        {% elif is_state("input_select.radio_speaker", "Kitchen speaker") %} media_player.kitchen_speaker
+        {% elif is_state("input_select.radio_speaker", "Living room speaker") %} media_player.living_room_speaker
+        {% endif %}'
       volume_level: '{{ states("input_number.radio_volume") }}'
   - service: media_player.play_media
     data:
-      entity_id: ' 
-      {% if is_state("input_select.radio_speaker", "Home group") %} media_player.home_group
-      {% elif is_state("input_select.radio_speaker", "Google Home Mini Esszimmer") %} media_player.ghm_esszimmer 
-      {% elif is_state("input_select.radio_speaker", "Google Home Mini Wohnzimmer") %} media_player.ghm_wohnzimmer 
-      {% elif is_state("input_select.radio_speaker", "Google Home Mini Küche") %} media_player.ghm_kueche 
-      {% endif %}'
-      media_content_id: ' 
-      {% if is_state("input_select.radio_station", "Radio 32") %} https://stream.radio32.ch/radio32 
-      {% elif is_state("input_select.radio_station", "SRF 3") %} https://stream.srg-ssr.ch/m/drs3/mp3_128 
-      {% elif is_state("input_select.radio_station", "SRF Virus") %} https://stream.srg-ssr.ch/m/drsvirus/mp3_128
-      {% elif is_state("input_select.radio_station", "Argovia") %} https://icecastgreen.argovia.ch/argovia128 
-      {% elif is_state("input_select.radio_station", "181.FM Comedy Club") %} https://listen.181fm.com/181-comedy_128k.mp3?noPreRoll=true
-      {% endif %}'
+      entity_id: ' {% if is_state("input_select.radio_speaker", "Home group") %} media_player.home_group
+        {% elif is_state("input_select.radio_speaker", "Daves Room speaker") %} media_player.lenovo_smartclock_essential
+        {% elif is_state("input_select.radio_speaker","Dining room speaker") %} media_player.dining_room_speaker
+        {% elif is_state("input_select.radio_speaker", "Kitchen speaker") %} media_player.kitchen_speaker
+        {% elif is_state("input_select.radio_speaker", "Living room speaker") %} media_player.living_room_speaker
+        {% endif %}'
+      media_content_id: ' {% if is_state("input_select.radio_station", "Radio 32")
+        %} https://stream.radio32.ch/radio32 {% elif is_state("input_select.radio_station",
+        "SRF 3") %} https://stream.srg-ssr.ch/m/drs3/mp3_128 {% elif is_state("input_select.radio_station",
+        "SRF Virus") %} https://stream.srg-ssr.ch/m/drsvirus/mp3_128 {% elif is_state("input_select.radio_station",
+        "Argovia") %} https://icecastgreen.argovia.ch/argovia128 {% elif is_state("input_select.radio_station",
+        "181.FM Comedy Club") %} https://listen.181fm.com/181-comedy_128k.mp3?noPreRoll=true
+        {% endif %}'
       media_content_type: music
   mode: single
   icon: mdi:radio
-
 '1607862525605':
   alias: Spotify - My Party
   sequence:
@@ -40,7 +39,6 @@
       random_song: true
   mode: single
   icon: mdi:spotify
-
 spotify_uk_top_50:
   alias: Spotify - UK Top50
   sequence:
@@ -52,7 +50,6 @@ spotify_uk_top_50:
       random_song: true
   mode: single
   icon: mdi:spotify
-
 spotify_us_top50:
   alias: Spotify - US Top50
   sequence:

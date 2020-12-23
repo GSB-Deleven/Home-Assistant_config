@@ -1,28 +1,16 @@
-- id: '1608200455916'
-  name: Light ON
-  entities: {}
-  icon: mdi:lightbulb-group-outline
-- id: '1608201763842'
-  name: Lights OFF
-  entities: {}
-  icon: mdi:lightbulb-group-off
-- id: '1608201997760'
-  name: Bedtime
+- id: '1608577822168'
+  name: Daves Room lights Scene
   entities:
-    scene.lights_off:
-      entity_id:
-      - light.dave
-      - light.esszimmer
-      - light.gang
-      - light.nachttisch
-      - light.schlafzimmer
-      - light.wohnzimmer
-      id: '1608201763842'
-      friendly_name: Lights OFF
-      icon: mdi:lightbulb-group-off
-      state: scening
-  icon: mdi:bed
-- id: '1608202611802'
-  name: Sleep
-  entities: {}
-  icon: mdi:sleep
+    light.lidl_color_bulb_dave:
+      min_mireds: 153
+      max_mireds: 65535
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      color_temp: 367
+      effect: none
+      friendly_name: Lidl Color Bulb Dave
+      supported_features: 63
+      state: 'on'
+  icon: mdi:glasses

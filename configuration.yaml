@@ -1,4 +1,4 @@
-# Configure a default setup of Home Assistant (frontend, api, etc)
+#Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 group: !include groups.yaml
 automation: !include automations.yaml
@@ -7,39 +7,28 @@ scene: !include scenes.yaml
 input_number: !include input_number.yaml
 input_select: !include input_select.yaml
 
-#Themes
+#Home Assistant URL
+homeassistant:
+  external_url: !secret external_url
+  latitude: !secret my_latitude
+  longitude: !secret my_longitude
+  elevation: !secret my_elevation
+  unit_system: metric
+  time_zone: !secret my_time_zone
+  packages: !include_dir_named integrations
+
+  #Themes
 frontend:
   themes: !include_dir_merge_named themes
 
-# Text to speech
+  # Text to speech
 tts:
   - platform: google_translate
 
-homeassistant:
-  external_url: !secret external_url
-  internal_url: !secret internal_url
 
-# DuckDNS Stuff / https://www.home-assistant.io/integrations/duckdns/
-duckdns:
-  domain: !secret DuckDNS_domain
-  access_token: !secret DuckDNS_access_token
-
-# Spotify
-spotify:
-  client_id: !secret spotify_client_ID
-  client_secret: !secret spotify_client_secret
-# used this guide https://www.home-assistant.io/integrations/spotify/
-# but i added all this redirect urls in the spotify app, otherwise it wasnt working
-# http://external_url:port/auth/external/callback
-# http://external_url:port/callback
-# http://internal_url:port/auth/external/callback
-# http://internal_url:port/auth/callback
-# https://external_url:port/auth/external/callback
-# https://external_url:port/callback
-
-# Radarr
+#Sensors
 sensor:
-  - platform: radarr
+  - platform: radarr ############################### Radarr
     api_key: !secret radarr_api_key
     host: !secret NAS_IP
     port: !secret radarr_port
@@ -50,47 +39,66 @@ sensor:
       - movies
     unit: TB
     days: 30
+  ############################################### This creates a sensor which shows the Playername(s) of Online Players
+  - platform: template
+    sensors:
+      minecraft_server_players_online:
+        friendly_name: "Who is Online?"
+        value_template: "{{ state_attr('sensor.minecraft_server_players_online', 'players_list') }}"
 
-# Xiaomi Roborock S5
-vacuum:
-  - platform: xiaomi_miio
-    name: Roborock S5
-    host: !secret roborock_s5_ip
-    token: !secret roborock_s5_token
+# Binary Sensors
+binary_sensor:
+  - platform: rest
+    name: Daves Room motion
+    device_class: motion
+    resource: http://192.168.1.143:8080/sensors.json?sense=motion_active
+    value_template: "{{ value_json.motion_active.data[0][1][0] | round(0) }}"
 
-# HomeKit Stuff
-homekit:
-  auto_start: true
-  filter:
-    include_entities:
-      # Media Players
-      - media_player.home_group
-      - media_player.tv_living_room
-      - media_player.tv_dave
-      # Minecraft
-      - binary_sensor.minecraft_server_status
-      # Vacuum
-      - vacuum.roborock_s5
-      - camera.roborock_s5
-      # NAS
-      - binary_sensor.delevennas_security_status
-      - sensor.delevennas_temperature
-  entity_config:
-    media_player.home_group:
-      feature_list:
-        - feature: on_off
-    media_player.tv_living_room:
-      feature_list:
-        - feature: on_off
-    media_player.tv_dave:
-      feature_list:
-        - feature: on_off
+#Lightgroup
+light:
+  - platform: group
+    name: all the lights
+    entities:
+      - light.dave
+      - light.esszimmer
+      - light.gang
+      - light.nachttisch
+      - light.schlafzimmer
+      - light.wohnzimmer
+      - light.badezimmer_1
+      - light.badezimmer_2
+
+
+#Minecraft Stuff
+#minecraft:
+#  host: 192.168.1.124
+#  query_port: !secret mc_query_port
+#  rcon_port: !secret mc_rcon_port
+#  rcon_password: !secret mc_rcon_password
+#  notify: true # (Default: true, set to false to remove notify services)
+#  icon: mdi:minecraft # (Default: mdi:minecraft)
+#  name: sensor.gsb_minecraft_server # (Default: Minecraft Server (sensor.minecraft_server))
+#  sensor: # List of default sensors
+#    - motd
+#    - game_type
+#    - version
+#    - map
+#    - players
+#    - type #optional sensor
+#    - session_id #optional sensor
+#    - host_name #optional sensor
+#    - game_id #optional sensor
+#    - plugins #optional sensor
+#    - num_players #optional sensor
+#    - max_players #optional sensor
+#    - host_port #optional sensor
+#    - host_ip #optional sensor
 
 ###############################################################################
 # from Here on out, this stuff needs HACS
 ###############################################################################
 
-# Spotcast
+#Spotcast
 spotcast:
   sp_dc: !secret sp_dc
   sp_key: !secret sp_key
@@ -131,3 +139,4 @@ camera:
         bottom: 20
         left: 20
         right: 20
+
