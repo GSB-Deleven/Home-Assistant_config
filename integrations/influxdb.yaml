@@ -1,0 +1,5 @@
+#InfluxDB https://www.home-assistant.io/integrations/influxdb
+influxdb:
+  host: !secret ifdb_host
+  username: !secret ifdb_user
+  password: !secret ifdb_password

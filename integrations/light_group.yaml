@@ -1,0 +1,39 @@
+#Lightgroup https://www.home-assistant.io/integrations/light.group/
+light:
+  ################# Delia
+  - platform: group
+    name: Delias Room - Light Group
+    entities:
+      - light.delias_room_bulb
+  ################# Dave
+  - platform: group
+    name: Daves Room - Light Group
+    entities:
+      - light.bulb_daves_room
+      - light.bulb_oldschool_daves_room
+  ################# Dining Room
+  - platform: group
+    name: Dining Room - Light Group
+    entities:
+      - light.bulb_dining_room
+  ################# Living Room
+  - platform: group
+    name: Living Room - Light Group
+    entities:
+      - light.living_room_smartplug
+      - light.bulb_living_room
+  ################# Bathroom
+  - platform: group
+    name: Bathroom - Light Group
+    entities:
+      - light.bathroom_main_bulb
+      - light.bathroom_mirror_bulb_1
+      - light.bathroom_mirror_bulb_2
+      - light.bathroom_mirror_bulb_3
+  ################# Bedroom
+  - platform: group
+    name: Bedroom - Light Group
+    entities:
+      - light.bulb_nighttable_delia
+      - light.bulb_nighttable_dave
+      - light.bulb_bedroom

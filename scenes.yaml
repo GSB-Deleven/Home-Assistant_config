@@ -1,16 +1,1 @@
-- id: '1608577822168'
-  name: Daves Room lights Scene
-  entities:
-    light.lidl_color_bulb_dave:
-      min_mireds: 153
-      max_mireds: 65535
-      effect_list:
-      - colorloop
-      - random
-      brightness: 255
-      color_temp: 367
-      effect: none
-      friendly_name: Lidl Color Bulb Dave
-      supported_features: 63
-      state: 'on'
-  icon: mdi:glasses
+[]

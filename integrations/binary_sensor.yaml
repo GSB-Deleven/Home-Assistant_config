@@ -1,0 +1,6 @@
+binary_sensor:
+  - platform: rest
+    name: Daves Room motion
+    device_class: motion
+    resource: http://192.168.1.143:8080/sensors.json?sense=motion_active
+    value_template: "{{ value_json.motion_active.data[0][1][0] | round(0) }}"

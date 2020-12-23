@@ -1,0 +1,23 @@
+# HomeKit Stuff https://www.home-assistant.io/integrations/homekit/
+homekit:
+  auto_start: true
+  filter:
+    include_domains:
+      - light
+      - media_player
+    include_entities:
+      # Node Red Stuff
+      - input_boolean.night_time_overwrite
+      - input_boolean.dave_room_lights
+      - sensor.hue_motion_sensor_1_temperature
+      - sensor.hue_motion_sensor_1_light_level
+  entity_config:
+    media_player.home_group:
+      feature_list:
+        - feature: on_off
+    media_player.tv_living_room:
+      feature_list:
+        - feature: on_off
+    media_player.tv_dave:
+      feature_list:
+        - feature: on_off

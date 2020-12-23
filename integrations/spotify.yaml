@@ -1,0 +1,12 @@
+#Spotify https://www.home-assistant.io/integrations/spotify/
+spotify:
+  client_id: !secret spotify_client_ID
+  client_secret: !secret spotify_client_secret
+  # used this guide https://www.home-assistant.io/integrations/spotify/
+  # but i added all this redirect urls in the spotify app, otherwise it wasnt working
+  # http://external_url:port/auth/external/callback
+  # http://external_url:port/callback
+  # http://internal_url:port/auth/external/callback
+  # http://internal_url:port/auth/callback
+  # https://external_url:port/auth/external/callback
+  # https://external_url:port/callback

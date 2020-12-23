@@ -1,0 +1,6 @@
+# Xiaomi Roborock S5 https://www.home-assistant.io/integrations/vacuum/
+vacuum:
+  - platform: xiaomi_miio
+    name: Roborock S5
+    host: !secret roborock_s5_ip
+    token: !secret roborock_s5_token
