@@ -4,36 +4,36 @@ light:
   - platform: group
     name: Delias Room - Light Group
     entities:
-      - light.delias_room_bulb
+      - light.delias_room_bulb #Friendly Name is: Delias Room Bulb
   ################# Dave
   - platform: group
     name: Daves Room - Light Group
     entities:
-      - light.bulb_daves_room
-      - light.bulb_oldschool_daves_room
+      - light.bulb_daves_room #Friendly Name is: 
+      - light.bulb_oldschool_daves_room #Friendly Name is: 
   ################# Dining Room
   - platform: group
     name: Dining Room - Light Group
     entities:
-      - light.bulb_dining_room
+      - light.bulb_dining_room #Friendly Name is: 
   ################# Living Room
   - platform: group
     name: Living Room - Light Group
     entities:
-      - light.living_room_smartplug
-      - light.bulb_living_room
+      - light.living_room_smartplug #Friendly Name is: 
+      - light.bulb_living_room #Friendly Name is: 
   ################# Bathroom
   - platform: group
     name: Bathroom - Light Group
     entities:
-      - light.bathroom_main_bulb
-      - light.bathroom_mirror_bulb_1
-      - light.bathroom_mirror_bulb_2
-      - light.bathroom_mirror_bulb_3
+      - light.bathroom_main_bulb #Friendly Name is: 
+      - light.bathroom_mirror_bulb_1 #Friendly Name is: 
+      - light.bathroom_mirror_bulb_2 #Friendly Name is: 
+      - light.bathroom_mirror_bulb_3 #Friendly Name is: 
   ################# Bedroom
   - platform: group
     name: Bedroom - Light Group
     entities:
-      - light.bulb_nighttable_delia
-      - light.bulb_nighttable_dave
-      - light.bulb_bedroom
+      - light.bulb_nighttable_delia #Friendly Name is: 
+      - light.bulb_nighttable_dave #Friendly Name is: 
+      - light.bulb_bedroom #Friendly Name is: 

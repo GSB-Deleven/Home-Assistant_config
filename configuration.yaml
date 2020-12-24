@@ -9,6 +9,7 @@ input_select: !include input_select.yaml
 
 #Home Assistant URL
 homeassistant:
+  internal_url: !secret internal_url
   external_url: !secret external_url
   latitude: !secret my_latitude
   longitude: !secret my_longitude
@@ -24,3 +25,16 @@ frontend:
   # Text to speech
 tts:
   - platform: google_translate
+
+http:
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  ip_ban_enabled: true
+  login_attempts_threshold: 5
+
+  ############################################################################################################################
+  ##### The config file is very empty, because the config is split
+  ##### See /integrations folder
+  ##### This gave me the idea: https://www.youtube.com/watch?v=kgFwhYInzfA&t=809s
+  ##### This seems to be useful https://www.home-assistant.io/docs/configuration/splitting_configuration/
+  ############################################################################################################################

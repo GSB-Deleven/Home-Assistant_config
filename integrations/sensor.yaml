@@ -1,5 +1,6 @@
 sensor:
-  - platform: radarr ############################### Radarr
+  ###############################################  Radarr ############################################### 
+  - platform: radarr 
     api_key: !secret radarr_api_key
     host: !secret NAS_IP
     port: !secret radarr_port
@@ -10,9 +11,19 @@ sensor:
       - movies
     unit: TB
     days: 30
-  ############################################### This creates a sensor which shows the Playername(s) of Online Players
+  ############################################### This creates a sensor which shows the Playername(s) of Online Players ############################################### 
   - platform: template
     sensors:
       minecraft_server_players_online:
         friendly_name: "Who is Online?"
         value_template: "{{ state_attr('sensor.minecraft_server_players_online', 'players_list') }}"
+  ############################################### System Monitor https://www.home-assistant.io/integrations/systemmonitor/ ###############################################
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /config
+      - type: memory_free
+      - type: memory_use_percent
+      - type: processor_use
+      - type: processor_temperature
+      - type: last_boot

@@ -1,0 +1,57 @@
+#Made it more or less like this guide https://www.youtube.com/watch?v=OGiDPIx_mVQ amd this https://www.home-assistant.io/integrations/google_assistant/#configuration
+google_assistant:
+  project_id: !secret google_project_id
+  service_account: 
+    private_key: !secret google_private_key
+    client_email: !secret google_client_email
+  report_state: true
+  exposed_domains:
+  - switch
+  - light
+  - camera
+  - scene
+  - sensor
+  - script
+  - group
+  - input_boolean
+  - input_select
+  - fan
+  - media.player
+  - climate
+  - vacuum
+  - humidifier
+  entity_config:
+    sensor.delevennas_temperature:
+      expose: false
+    sensor.delevennas_drive_1_temperature:
+      expose: false
+    sensor.delevennas_drive_2_temperature:
+      expose: false
+    sensor.delevennas_drive_3_temperature:
+      expose: false
+    sensor.delevennas_drive_4_temperature:
+      expose: false
+    sensor.delevennas_volume_1_average_disk_temp:
+      expose: false
+    sensor.delevennas_volume_1_maximum_disk_temp:
+      expose: false
+
+
+
+
+
+################################################################################
+# to SYNC devices say "Hey Google, sync devices"
+#
+# The Sync wont work after 30 days, so we need to reenable the test enviromet
+#
+# Go to https://console.actions.google.com/ and click on the Home Assistant Project
+################################################################################
+## MAYBE you could also just click directly on "Test" in the Top Menu, 
+# if that doesnt work, prceed with the steps below
+################################################################################
+# Click on "Develope" (Top Menu) and the "Account linking" (Side Menu)
+#
+# And the click "Test" (Top Menu second level), now it should be enabled again
+#
+################################################################################
