@@ -415,8 +415,8 @@
     },
     "node-red-contrib-cast": {
         "name": "node-red-contrib-cast",
-        "version": "0.2.16",
-        "local": false,
+        "version": "0.2.17",
+        "local": true,
         "nodes": {
             "cast-to-client": {
                 "name": "cast-to-client",
@@ -424,9 +424,9 @@
                     "cast-to-client"
                 ],
                 "enabled": true,
-                "local": false,
+                "local": true,
                 "module": "node-red-contrib-cast",
-                "file": "/opt/node_modules/node-red-contrib-cast/cast-to-client.js"
+                "file": "/config/node-red/node_modules/node-red-contrib-cast/cast-to-client.js"
             }
         }
     },

@@ -428,7 +428,8 @@
                 "module": "node-red-contrib-cast",
                 "file": "/opt/node_modules/node-red-contrib-cast/cast-to-client.js"
             }
-        }
+        },
+        "pending_version": "0.2.17"
     },
     "node-red-contrib-counter": {
         "name": "node-red-contrib-counter",
@@ -1522,33 +1523,6 @@
                 "local": true,
                 "module": "node-red-contrib-deconz",
                 "file": "/config/node-red/node_modules/node-red-contrib-deconz/deconz.js"
-            }
-        }
-    },
-    "node-red-contrib-spotify": {
-        "name": "node-red-contrib-spotify",
-        "version": "0.1.4",
-        "local": false,
-        "nodes": {
-            "spotify": {
-                "name": "spotify",
-                "types": [
-                    "spotify"
-                ],
-                "enabled": true,
-                "local": true,
-                "module": "node-red-contrib-spotify",
-                "file": "/config/node-red/node_modules/node-red-contrib-spotify/src/spotify.js"
-            },
-            "spotify-auth": {
-                "name": "spotify-auth",
-                "types": [
-                    "spotify-auth"
-                ],
-                "enabled": true,
-                "local": true,
-                "module": "node-red-contrib-spotify",
-                "file": "/config/node-red/node_modules/node-red-contrib-spotify/src/authorize.js"
             }
         }
     }

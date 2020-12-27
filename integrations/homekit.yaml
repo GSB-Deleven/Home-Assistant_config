@@ -4,13 +4,30 @@ homekit:
   filter:
     include_domains:
       - light
+      - switch
+      - camera
       - media_player
+      - input_boolean
+      - automation
     include_entities:
       # Node Red Stuff
+      - input_boolean.daves_motion_sensor_switch
       - input_boolean.night_time_overwrite
-      - input_boolean.dave_room_lights
+      # Temperature / Light
       - sensor.hue_motion_sensor_1_temperature
       - sensor.hue_motion_sensor_1_light_level
+      # Motion Sensors
+      - binary_sensor.hue_motion_sensor_1_motion
+      - binary_sensor.tradfri_motion_sensor_bathroom
+      - binary_sensor.tradfri_motion_sensor_hallway
+    exclude_entities:
+      - camera.roborock_s5
+      - input_number.radio_volume
+      - input_select.radio_speaker
+      - input_select.radio_station
+      - media_player.spotify_david_leuenberger
+      - remote.xboxone_remote
+      - remote.xboxone_remote
   entity_config:
     media_player.home_group:
       feature_list:

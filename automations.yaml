@@ -1,30 +1,16 @@
-- id: '1608674115497'
-  alias: New Automation
-  description: ''
+- id: '1609101022114'
+  alias: Nightly reboot at 01:45
+  description: Reboot to keep HA fresh
   trigger:
-  - device_id: 1b4d4fb81e69610a2685ad9eb8574d65
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  condition: []
+  - platform: time
+    at: 01:45
+  - platform: tag
+    tag_id: ''
+  condition:
+  - condition: time
+    after: 01:30
+    before: 02:00
   action:
-  - service: light.turn_on
+  - service: homeassistant.restart
     data: {}
-    entity_id: light.bulb_oldschool_daves_room
-  mode: single
-- id: '1608674162069'
-  alias: New Automation
-  description: ''
-  trigger:
-  - device_id: 1b4d4fb81e69610a2685ad9eb8574d65
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_off
-  condition: []
-  action:
-  - service: light.turn_off
-    data: {}
-    entity_id: light.bulb_oldschool_daves_room
   mode: single

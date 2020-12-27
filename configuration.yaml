@@ -25,7 +25,14 @@ frontend:
   # Text to speech
 tts:
   - platform: google_translate
+    service_name: google_say
+    cache: true
+    cache_dir: /config/tts
+    time_memory: 28800
+    base_url: https://192.168.1.123:8123
+    language: 'en-uk'
 
+#http:
 http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
