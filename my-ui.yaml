@@ -1,0 +1,769 @@
+title: Home
+views:
+  - title: Home
+    path: home
+    icon: 'mdi:home'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: input_boolean.switch_motion_sensor_dave
+                icon_height: 50px
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: input_boolean.night_time_overwrite
+                icon_height: 50px
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: toggle
+                name: TV Scene
+                icon: 'hass:television'
+                entity: input_boolean.scene_tv
+                icon_height: 50px
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: input_boolean.killswitch_turn_off_everything
+                icon_height: 50px
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: toggle
+                name: Dave Main
+                entity: light.bulb_daves_room
+                icon_height: 50px
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: light.bulb_oldschool_daves_room
+                name: Dave OS
+                icon_height: 50px
+                icon: 'mdi:lightbulb-cfl-spiral'
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: light.lightstrip_dave_kallax
+                name: LS Kallax
+                icon_height: 50px
+                icon: 'mdi:led-strip-variant'
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: light.light_strip_dave_table
+                name: LS Table
+                icon_height: 50px
+                icon: 'mdi:led-strip-variant'
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: input_boolean.lightgroup_bathroom
+                icon_height: 50px
+                name: Bathroom
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: light.hallway_bulb
+                icon_height: 50px
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: switch.smart_plug_hallway
+                icon: 'mdi:floor-lamp'
+                icon_height: 50px
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: light.bulb_living_room
+                icon_height: 50px
+                name: LR Bulb
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: light.living_room_smartplug
+                icon: 'hass:floor-lamp'
+                icon_height: 50px
+                name: LR Smartplug
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: light.lightstrip_tv
+                icon_height: 50px
+                icon: 'mdi:led-strip-variant'
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: light.bulb_bedroom
+                name: Bedroom Main
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: input_boolean.switch_nighttables
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: light.bulb_dining_room
+                name: Dining Room Main
+                icon_height: 50px
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: switch.smart_plug_dining_room
+                icon: 'hass:floor-lamp'
+                name: Dining Room Smartplug
+                icon_height: 50px
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: light.delias_room_bulb
+                name: Delia
+                icon_height: 50px
+          - type: entities
+            entities:
+              - entity: light.bathroom_main_bulb
+              - entity: light.bathroom_mirror_bulb_1
+              - entity: light.bathroom_mirror_bulb_2
+              - entity: light.bathroom_mirror_bulb_3
+      - type: entities
+        entities:
+          - entity: media_player.home_group
+          - entity: media_player.lenovo_smartclock_essential
+          - entity: media_player.dining_room_speaker
+          - entity: media_player.kitchen_speaker
+          - entity: media_player.living_room_speaker
+          - entity: media_player.chromecast
+        state_color: true
+      - type: media-control
+        entity: media_player.home_group
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: '# Home Assistant Stats'
+          - type: entities
+            entities:
+              - entity: sensor.processor_use_percent
+              - entity: sensor.memory_use_percent
+              - entity: sensor.processor_temperature
+              - entity: sensor.local_ip
+              - entity: sensor.last_boot
+                name: Last Raspberry Pi boot
+              - entity: sensor.memory_free
+              - entity: sensor.disk_use_percent_config
+                name: Disk used
+            state_color: true
+            show_header_toggle: true
+      - type: entities
+        entities:
+          - entity: binary_sensor.tradfri_motion_sensor_hallway
+            secondary_info: last-updated
+          - entity: binary_sensor.tradfri_motion_sensor
+            name: TRADFRI motion Sensor Hallway 2
+          - entity: binary_sensor.motion_sensor_dave_table
+            secondary_info: last-updated
+          - entity: binary_sensor.hue_motion_sensor_1_motion
+            secondary_info: last-updated
+          - entity: sensor.hue_motion_sensor_1_light_level
+            secondary_info: last-updated
+          - entity: sensor.hue_motion_sensor_1_temperature
+            secondary_info: last-updated
+          - entity: sensor.tradfri_motion_sensor_battery_level
+            secondary_info: last-updated
+          - entity: sensor.hallway_motion_sensor_2_battery_level
+          - entity: sensor.motion_sensor_dave_table_battery_level
+          - entity: sensor.living_room_remote_control_battery_level
+          - entity: sensor.tradfri_remote_control_battery_level
+          - entity: sensor.tradfri_on_off_switch_battery_level
+          - entity: sensor.volume_play_mute_controller_battery_level
+        state_color: true
+      - type: 'custom:vacuum-card'
+        entity: vacuum.roborock_s5
+        stats:
+          default:
+            - attribute: filter_left
+              unit: hours
+              subtitle: Filter
+            - attribute: side_brush_left
+              unit: hours
+              subtitle: Side brush
+            - attribute: main_brush_left
+              unit: hours
+              subtitle: Main brush
+            - attribute: sensor_dirty_left
+              unit: hours
+              subtitle: Sensors
+          cleaning:
+            - attribute: cleaned_area
+              unit: m2
+              subtitle: Cleaning area
+            - attribute: cleaning_time
+              unit: minutes
+              subtitle: Cleaning time
+        compact_view: false
+        show_toolbar: true
+        show_status: true
+        show_name: true
+        map: camera.roborock_s5
+  - title: Media HUB
+    path: media-hub
+    icon: 'mdi:speaker'
+    badges: []
+    cards:
+      - type: 'custom:mini-media-player'
+        entity: media_player.home_group
+        name: Playing on Home Group
+        icon: 'mdi:music-box-outline'
+        artwork: cover
+        toggle_power: false
+        info: scroll
+        more_info: true
+        volume_stateless: false
+        volume_step: 5
+        hide:
+          power_state: false
+          progress: false
+          controls: false
+          icon: true
+          mute: true
+          volume_level: false
+          shuffle: false
+        shortcuts:
+          hide_when_off: false
+          columns: 3
+          buttons:
+            - name: UK Top 50
+              type: service
+              id: spotcast.start
+              data:
+                entity_id: media_player.home_group
+                uri: 'spotify:playlist:37i9dQZEVXbLnolsZ8PSNw'
+            - name: US Top 50
+              type: service
+              id: spotcast.start
+              data:
+                entity_id: media_player.home_group
+                uri: 'spotify:playlist:37i9dQZEVXbLRQDuF5jeBp'
+            - name: My Party
+              type: service
+              id: spotcast.start
+              data:
+                entity_id: media_player.home_group
+                uri: 'spotify:playlist:0fmaLXXkaEAsHJAYilWpYs'
+            - name: Radio 32
+              type: music
+              id: 'https://stream.radio32.ch/radio32'
+            - name: SRF 3
+              type: music
+              id: 'https://stream.srg-ssr.ch/m/drs3/mp3_128'
+            - name: Argovia
+              type: music
+              id: 'https://icecastgreen.argovia.ch/argovia128'
+            - name: SRF Virus
+              type: music
+              id: 'https://stream.srg-ssr.ch/m/drsvirus/mp3_128'
+            - name: 181.FM Comedy Club
+              type: music
+              id: 'https://listen.181fm.com/181-comedy_128k.mp3?noPreRoll=true'
+            - name: nothing yet
+              type: music
+              id: null
+      - type: entities
+        entities:
+          - entity: media_player.lenovo_smartclock_essential
+          - entity: media_player.wohnzimmer
+          - entity: media_player.esszimmer
+          - entity: media_player.kuche
+          - entity: media_player.tv_dave
+          - entity: media_player.tv_living_room
+          - entity: media_player.appletv_dave
+          - entity: media_player.xboxone
+        state_color: true
+      - type: 'custom:spotify-card'
+        limit: 10
+        spotify_entity: media_player.spotify_david_leuenberger
+        account: default
+        always_play_random_song: true
+        grid_covers_per_row: 3
+        hide_warning: true
+        grid_center_covers: true
+        playlist_type: default
+        display_style: list
+      - type: entities
+        entities:
+          - entity: input_select.radio_station
+          - entity: input_number.radio_volume
+          - entity: input_select.radio_speaker
+          - entity: script.1607456425349
+      - type: entities
+        entities:
+          - entity: media_player.home_group
+          - entity: media_player.lenovo_smartclock_essential
+          - entity: media_player.dining_room_speaker
+          - entity: media_player.kitchen_speaker
+          - entity: media_player.living_room_speaker
+          - entity: media_player.chromecast
+        state_color: true
+  - title: Download Station
+    path: nas
+    icon: 'mdi:download'
+    badges: []
+    cards:
+      - type: 'custom:upcoming-media-card'
+        entity: sensor.recently_added_movies
+        title: Recently Downloaded
+      - type: 'custom:upcoming-media-card'
+        entity: sensor.recently_added_tv
+        title: Recently Downloaded
+      - type: 'custom:upcoming-media-card'
+        entity: sensor.radarr_upcoming_media
+        title: Upcoming Movies
+      - type: 'custom:upcoming-media-card'
+        entity: sensor.sonarr_upcoming_media
+        title: Upcoming TV
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: '# Media HUB'
+          - type: entities
+            entities:
+              - entity: switch.nzbget_download
+                secondary_info: last-updated
+              - entity: sensor.nzbget_download_paused
+                secondary_info: last-updated
+              - entity: sensor.nzbget_speed
+                secondary_info: last-updated
+              - entity: sensor.nzbget_average_speed
+                secondary_info: last-updated
+              - entity: sensor.nzbget_post_processing_jobs
+                secondary_info: last-updated
+              - entity: sensor.nzbget_post_processing_paused
+                secondary_info: last-updated
+              - entity: sensor.nzbget_queue_size
+                secondary_info: last-updated
+              - entity: sensor.nzbget_size
+                secondary_info: last-updated
+              - entity: sensor.nzbget_uptime
+                secondary_info: last-updated
+            state_color: true
+            title: NZBGet
+          - type: entities
+            entities:
+              - entity: sensor.sonarr_queue
+                secondary_info: last-updated
+              - entity: sensor.sonarr_upcoming
+                secondary_info: last-updated
+              - entity: sensor.sonarr_wanted
+                secondary_info: last-updated
+              - entity: sensor.sonarr_shows
+                secondary_info: last-updated
+              - entity: sensor.sonarr_disk_space
+                secondary_info: last-updated
+            title: Sonarr
+            state_color: true
+          - type: entities
+            entities:
+              - entity: sensor.radarr_upcoming
+                secondary_info: last-updated
+              - entity: sensor.radarr_movies
+                secondary_info: last-updated
+              - entity: sensor.radarr_status
+                secondary_info: last-updated
+            title: Radarr
+            state_color: true
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: '# NAS - Synology DS918+'
+          - type: horizontal-stack
+            cards:
+              - type: history-graph
+                entities:
+                  - entity: sensor.delevennas_memory_usage_real
+                  - entity: sensor.processor_use_percent
+                hours_to_show: 24
+                refresh_interval: 0
+          - type: entities
+            entities:
+              - entity: binary_sensor.delevennas_update_available
+                secondary_info: last-updated
+              - entity: binary_sensor.delevennas_security_status
+                secondary_info: last-updated
+              - entity: sensor.delevennas_volume_1_status
+                secondary_info: last-updated
+              - entity: sensor.delevennas_temperature
+                secondary_info: last-updated
+              - entity: sensor.delevennas_volume_1_average_disk_temp
+              - entity: sensor.delevennas_volume_1_volume_used
+                secondary_info: last-updated
+              - entity: sensor.delevennas_cpu_load_total
+              - entity: sensor.delevennas_memory_usage_real
+            state_color: true
+  - title: Phone etc.
+    path: phone-etc
+    icon: 'mdi:apple'
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.davids_iphone_storage
+          - entity: sensor.davids_iphone_battery_level
+          - entity: sensor.davids_iphone_battery_state
+          - entity: device_tracker.davids_iphone
+          - entity: sensor.davids_iphone_geocoded_location
+          - entity: sensor.davids_iphone_ssid
+          - entity: sensor.davids_iphone_bssid
+          - entity: sensor.davids_iphone_connection_type
+          - entity: sensor.davids_iphone_sim_1
+          - entity: sensor.davids_iphone_sim_2
+          - entity: sensor.davids_iphone_last_update_trigger
+        state_color: true
+        title: iPhone 11
+        header:
+          type: graph
+          entity: sensor.davids_iphone_battery_level
+          hours_to_show: 24
+          detail: 2
+      - type: entities
+        entities:
+          - entity: sensor.davids_ipad_storage
+          - entity: sensor.davids_ipad_battery_level
+          - entity: sensor.davids_ipad_battery_state
+          - entity: device_tracker.davids_ipad
+          - entity: sensor.davids_ipad_activity
+          - entity: sensor.davids_ipad_ssid
+          - entity: sensor.davids_ipad_bssid
+          - entity: sensor.davids_ipad_connection_type
+          - entity: sensor.davids_ipad_geocoded_location
+          - entity: sensor.davids_ipad_last_update_trigger
+        state_color: true
+        title: iPad Pro
+        header:
+          type: graph
+          entity: sensor.davids_ipad_battery_level
+          hours_to_show: 24
+          detail: 2
+      - type: entities
+        entities:
+          - entity: sensor.davids_macbook_air_storage
+          - entity: sensor.davids_macbook_air_internal_battery_level
+          - entity: sensor.davids_macbook_air_internal_battery_state
+          - entity: binary_sensor.davids_macbook_air_active
+          - entity: sensor.davids_macbook_air_geocoded_location
+          - entity: binary_sensor.davids_macbook_air_facetime_hd_camera
+          - entity: sensor.davids_macbook_air_ssid
+          - entity: device_tracker.davids_macbook_air
+          - entity: sensor.davids_macbook_air_bssid
+        state_color: true
+        title: MacBook Air M1 (late 2020)
+        header:
+          type: graph
+          entity: sensor.davids_macbook_air_internal_battery_level
+          hours_to_show: 24
+          detail: 2
+      - type: map
+        entities:
+          - entity: device_tracker.davids_iphone
+          - entity: device_tracker.davids_ipad
+          - entity: device_tracker.davids_macbook_air
+        hours_to_show: 24
+        dark_mode: true
+      - type: grid
+        cards:
+          - type: 'custom:mini-graph-card'
+            entities:
+              - sensor.davids_iphone_average_active_pace
+            name: Active Pace
+            hours_to_show: 168
+            points_per_hour: 1
+            line_width: 3
+            font_size: 100
+            state: true
+            icon_adaptive_color: true
+            name_adaptive_color: true
+            show_state: true
+            animate: true
+            show:
+              graph: line
+              state: true
+              legend: true
+              labels_secondary: true
+              extrema: true
+              name_adaptive_color: true
+              icon_adaptive_color: true
+            color_thresholds:
+              - value: 0
+                color: '#ffffff'
+              - value: 0.2
+                color: '#00ffff'
+              - value: 1.1
+                color: '#5fff00'
+          - type: 'custom:mini-graph-card'
+            entities:
+              - sensor.davids_iphone_distance
+            name: Distance
+            hours_to_show: 24
+            points_per_hour: 1
+            line_width: 3
+            font_size: 100
+            state: true
+            icon_adaptive_color: true
+            name_adaptive_color: true
+            show_state: true
+            animate: true
+            show:
+              graph: line
+              state: true
+              legend: true
+              labels_secondary: true
+              extrema: true
+              name_adaptive_color: true
+              icon_adaptive_color: true
+            color_thresholds:
+              - value: 0
+                color: '#ffffff'
+              - value: 1000
+                color: '#00ffff'
+              - value: 2000
+                color: '#5fff00'
+          - type: 'custom:mini-graph-card'
+            entities:
+              - sensor.davids_iphone_floors_ascended
+              - sensor.davids_iphone_floors_descended
+  - title: COVID-19
+    path: covid-19
+    icon: 'mdi:virus'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: '# COVID-19 Tracker'
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.switzerland_coronavirus_confirmed
+                name: Confirmed
+                legend: true
+                points: true
+                hours_to_show: 168
+                points_per_hour: 0.025
+                line_color: '#ffaa00'
+                line_width: 3
+                font_size: 100
+                state: true
+                show_state: true
+                icon_adaptive_color: true
+                name_adaptive_color: true
+                show:
+                  name_adaptive_color: true
+                  icon_adaptive_color: true
+              - type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.switzerland_coronavirus_current
+                name: Current
+                legend: true
+                points: true
+                hours_to_show: 168
+                points_per_hour: 0.025
+                line_color: '#d000ff'
+                line_width: 3
+                font_size: 100
+                state: true
+                show_state: true
+                icon_adaptive_color: true
+                name_adaptive_color: true
+                show:
+                  name_adaptive_color: true
+                  icon_adaptive_color: true
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.switzerland_coronavirus_recovered
+                name: Recovered
+                legend: true
+                points: true
+                hours_to_show: 168
+                points_per_hour: 0.025
+                line_color: '#00e1ff'
+                line_width: 3
+                font_size: 100
+                state: true
+                show_state: true
+                icon_adaptive_color: true
+                name_adaptive_color: true
+                show:
+                  name_adaptive_color: true
+                  icon_adaptive_color: true
+              - type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.switzerland_coronavirus_deaths
+                name: Deaths
+                legend: true
+                points: true
+                hours_to_show: 168
+                points_per_hour: 0.025
+                line_color: '#ff0000'
+                line_width: 3
+                font_size: 100
+                state: true
+                show_state: true
+                icon_adaptive_color: true
+                name_adaptive_color: true
+                show:
+                  name_adaptive_color: true
+                  icon_adaptive_color: true
+          - type: 'custom:mini-graph-card'
+            entities:
+              - entity: sensor.switzerland_coronavirus_confirmed
+                name: Confirmed
+              - entity: sensor.switzerland_coronavirus_recovered
+                name: Recovered
+              - entity: sensor.switzerland_coronavirus_deaths
+                name: Deaths
+              - entity: sensor.switzerland_coronavirus_current
+                name: Current
+            name: Confirmed
+            legend: true
+            points: true
+            hours_to_show: 168
+            points_per_hour: 0.025
+            line_width: 3
+            font_size: 100
+            state: true
+            show_state: true
+            icon_adaptive_color: true
+            name_adaptive_color: true
+            show:
+              name_adaptive_color: true
+              icon_adaptive_color: true
+      - type: iframe
+        url: 'https://corona-data.ch/'
+        aspect_ratio: 200%
+  - title: Gaming
+    path: gaming
+    icon: 'mdi:minecraft'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:mini-graph-card'
+            entities:
+              - entity: binary_sensor.minecraft_server_status
+            name: Minecraft Server 24h
+            hours_to_show: 24
+            points_per_hour: 1
+            line_width: 3
+            font_size: 100
+            state: true
+            animate: true
+            smoothing: true
+            state_adaptive_color: true
+            show:
+              graph: line
+              state: true
+              legend: false
+              points: true
+              labels: false
+              labels_secondary: true
+              name_adaptive_color: false
+              icon_adaptive_color: false
+            color_thresholds:
+              - value: '0'
+                color: '#ff0000'
+              - value: '0.99'
+                color: '#26ff00'
+            state_map:
+              - value: 'off'
+                label: Offline
+                color: '#ff0000'
+              - value: 'on'
+                label: Online
+                color: '#26ff00'
+          - type: entity
+            entity: sensor.minecraft_server_players_online_2
+            icon: 'mdi:minecraft'
+          - type: 'custom:mini-graph-card'
+            entities:
+              - sensor.minecraft_server_players_online
+            name: Players Online 24h
+            hours_to_show: 24
+            points_per_hour: 1
+            line_width: 3
+            font_size: 100
+            state: true
+            icon_adaptive_color: true
+            name_adaptive_color: true
+            show_state: true
+            animate: true
+            show:
+              graph: line
+              state: true
+              legend: true
+              labels_secondary: true
+              extrema: true
+              name_adaptive_color: true
+              icon_adaptive_color: true
+            color_thresholds:
+              - value: 0
+                color: '#ffffff'
+              - value: 0.2
+                color: '#00ffff'
+              - value: 1.1
+                color: '#5fff00'
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:mini-graph-card'
+                entities:
+                  - sensor.minecraft_server_latency_time
+                name: Minecraft Server Ping
+                hours_to_show: 24
+                points_per_hour: 1
+                line_width: 3
+                font_size: 100
+                state: true
+                icon_adaptive_color: true
+                name_adaptive_color: true
+                show_state: true
+                animate: true
+                show:
+                  graph: line
+                  state: true
+                  legend: true
+                  labels_secondary: true
+                  extrema: false
+                  name_adaptive_color: true
+                  icon_adaptive_color: true
+                color_thresholds:
+                  - value: 0
+                    color: '#5fff00'
+                  - value: 80
+                    color: '#ffea00'
+                  - value: 150
+                    color: '#ff4000'
+              - type: entity
+                entity: sensor.minecraft_server_version
+      - type: entities
+        entities:
+          - entity: sensor.d3l3v3n_status
+          - entity: sensor.d3l3v3n_account_tier
+          - entity: sensor.d3l3v3n_gamer_score
+          - entity: sensor.d3l3v3n_gold_tenure
+      - type: iframe
+        url: >-
+          https://www.nintendo.ch/de/My-Nintendo-Store/Nintendo-eShop/Jetzt-im-Angebot/Nintendo-eShop-Aktion-1369959.html
+        aspect_ratio: 100%
