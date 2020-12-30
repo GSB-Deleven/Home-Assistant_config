@@ -1,7 +1,7 @@
 # Setup Guide (WorkInProgress)
 
-* Setup the VM
-    * https://gh2home.nl/homeassistant/install-home-assistant-in-a-virtual-machine-vmm/
+* Setup Raspberry Pi 
+    * https://www.home-assistant.io/getting-started/
 * Setup Active Backup for Business on Synology, so you have a automated local backup, just to be sure 
     * I added it as a File Server
     * Add samba credentials, not the ones from Home-Assistant or NAS
